@@ -1,31 +1,21 @@
 <template>
-  
-   <b-container>
-    <p>Hello, Bootstrap-Vue</p>
-    <b-btn 
-      variant="primary"
-      @click="showAlert = true"
-    >
-      Click
-    </b-btn>
-    <b-alert 
-      v-bind:show="showAlert"
-      variant="success"
-    >
-      You clicked the button!
-    </b-alert>
-  </b-container>
+<div id="App">
+    
+    <Login/>
+  </div>
 </template>
 
 <script>
+import Login from './components/Login'
 
 export default {
-  data: () => ({
-    showAlert: false
-  })
-};
-
+  name: 'App',
+  components: {
+    Login
+  }
+}
 </script>
+<!-- -------------------------------------------- -->
 
 <style>
 </style>
