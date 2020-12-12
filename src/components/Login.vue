@@ -1,5 +1,8 @@
 <template>
-<div id="Login">
+<div>
+<div id="Empty" class = "bodycolumn">
+</div>
+<div id="Login" class = "bodycolumn">
     <b-form  v-if="show">
       <b-form-group
         id="input-group-1"
@@ -32,6 +35,10 @@
       <pre class="m-0">{{ form }}</pre>
     </b-card>
   </div>
+
+<div id="Empty" class = "bodycolumn">
+</div>
+</div>
 </template>
 
 <script>
@@ -76,4 +83,10 @@ export default {
 <!-- -------------------------------------------- -->
 
 <style>
+/* Create three equal columns that floats next to each other */
+.bodycolumn {
+  float: left;
+  width: 33.33%;
+  padding: 15px;
+}
 </style>
