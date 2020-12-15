@@ -69,6 +69,9 @@ export default {
                     }
                 })
                 alert(`Token received: ${res.data.token}`)
+                axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`
+                localStorage.setItem('authkey', res.data.token)
+                this.$router.push('/about')
             }
             catch (err) {
                 console.log(err);
