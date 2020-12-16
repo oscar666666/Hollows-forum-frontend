@@ -1,18 +1,18 @@
 <template>
   <div id="app">
-    <Navigation/>
-   <!-- <Login/> -->
+
+    <Login/>
     <router-view/>
   </div>
 </template>
 <script> 
-   import Navigation from './components/Navigation'  
+import Login from '../components/Login'  
   export default {   
     name: 'App',   
     components: {     
-      Navigation  
+      Login   
       }
-    }
+    } 
 </script>
        <!-- -------------------------------------------- -->  
 
