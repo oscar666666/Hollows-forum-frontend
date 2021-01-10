@@ -1,6 +1,7 @@
 <template>
 <div id="app">
     <Navigation/>
+    <NewThreadModal/>
    <!-- <Login/> -->
     <router-view/>
     <Threads/>
@@ -9,10 +10,13 @@
 
 <script>
 import Threads from '../components/Threads'  
+import NewThreadModal from '../components/NewThreadModal'  
+
   export default {   
     name: 'App',   
     components: {     
-      Threads  
+      Threads,
+      NewThreadModal  
       }
     }
 </script>

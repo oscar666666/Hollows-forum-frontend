@@ -1,8 +1,23 @@
 <template>
   <div>
+
     <h1>Threads</h1>
-    <div v-for="ThreadData in ThreadsList" :key="ThreadData.id" class="Thread-data">     
-    <span>{{ThreadData.Title}}</span>
+    <div class="Thread-data">     
+    <div class="column">
+    <div>
+    <b-card v-for="ThreadData in ThreadsList" 
+            :key="ThreadData.id" 
+            :title= 'ThreadData.Title' 
+            :sub-title='ThreadData.u_id' 
+            :footer='ThreadData.Post_time' 
+            align="left">
+    <b-card-text>
+      {{ThreadData.body}}
+    </b-card-text>
+
+  </b-card>
+</div>
+</div>
     </div>
   </div>
 </template>
@@ -25,23 +40,14 @@ export default {
                 }, error => {
                     console.error(error);
                 });
-      /* async DisplayThreads() {
-        try {
-            let res = await axios({
-                url: 'http://127.0.0.1:8000/get_thread',
-                method: 'GET',
-                data: {
-                      
-                    }
-                })
-                this.ThreadsList = res.data
-            }
-            catch (err) {
-                console.log(err);
-                alert(`Error: ${err}`)
-            }
-
-      }*/
     }
 }
 </script>
+
+<style>
+.column {
+  float: left;
+  width: 66.3%;
+  padding: 15px;
+}
+</style>
