@@ -45,13 +45,15 @@
 </template>
 
 <script>
+import axios from 'axios'
+
   export default {
     data() {
       return {
           form: {
           title: '',
           body: '',
-          u_id:''
+          u_id:'1'
         }
       }
     },
@@ -79,7 +81,21 @@
         if (!this.checkFormValidity()) {
           return
         }
-        // Push the name to submitted names
+        axios.post('http://127.0.0.1:8000/post_thread', {
+          Title: this.form.title,
+          body: this.form.body,
+          u_id: this.form.u_id
+         }, 
+         {
+            headers: {
+            'Authorization': `token ${localStorage.getItem('authkey')}` 
+            }
+         }
+         )
+                .then(function(  ){
+                    // Handle success
+                }.bind(this));
+        
         // Hide the modal manually
         this.$nextTick(() => {
           this.$bvModal.hide('modal-prevent-closing')
