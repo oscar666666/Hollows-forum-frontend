@@ -1,20 +1,20 @@
 <template>
   <div id="app">
-    <Navigation />
-    <!-- <Login/> -->
-    <router-view />
+
+    <RegisterComponent/>
+    <router-view/>
   </div>
 </template>
-<script>
-import Navigation from "./components/Navigation";
-export default {
-  name: "App",
-  components: {
-    Navigation,
-  },
-};
+<script> 
+import RegisterComponent from '../components/RegisterComponent'  
+  export default {   
+    name: 'App',   
+    components: {     
+      RegisterComponent   
+      }
+    } 
 </script>
-<!-- -------------------------------------------- -->
+       <!-- -------------------------------------------- -->  
 
 <style>
 #app {

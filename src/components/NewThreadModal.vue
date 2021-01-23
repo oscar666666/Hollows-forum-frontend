@@ -38,67 +38,71 @@
             required
           ></b-form-input>
         </b-form-group>
-
       </form>
     </b-modal>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 
-  export default {
-    data() {
-      return {
-          form: {
-          title: '',
-          body: ''
-        }
-      }
+export default {
+  data() {
+    return {
+      form: {
+        title: "",
+        body: "",
+      },
+    };
+  },
+  methods: {
+    checkFormValidity() {
+      const valid = this.$refs.form.checkValidity();
+      this.titleState = valid;
+      this.bodyState = valid;
+      return valid;
     },
-    methods: {
-      checkFormValidity() {
-        const valid = this.$refs.form.checkValidity()
-        this.titleState = valid
-        this.bodyState = valid
-        return valid
-      },
-      resetModal() {
-        this.form.title = ''
-        this.titleState = null
-        this.form.body = ''
-        this.bodyState = null
-      },
-      handleOk(bvModalEvt) {
-        // Prevent modal from closing
-        bvModalEvt.preventDefault()
-        // Trigger submit handler
-        this.handleSubmit()
-      },
-      handleSubmit() {
-        // Exit when the form isn't valid
-        if (!this.checkFormValidity()) {
-          return
-        }
-        axios.post('http://127.0.0.1:8000/Thread/post_thread', {
-          Title: this.form.title,
-          body: this.form.body
-         }, 
-         {
-            headers: {
-            'Authorization': `token ${localStorage.getItem('authkey')}` 
-            }
-         }
-         )
-                .then(function(  ){
-                    // Handle success
-                }.bind(this));
-        
-        // Hide the modal manually
-        this.$nextTick(() => {
-          this.$bvModal.hide('modal-prevent-closing')
-        })
+    resetModal() {
+      this.form.title = "";
+      this.titleState = null;
+      this.form.body = "";
+      this.bodyState = null;
+    },
+    handleOk(bvModalEvt) {
+      // Prevent modal from closing
+      bvModalEvt.preventDefault();
+      // Trigger submit handler
+      this.handleSubmit();
+    },
+    handleSubmit() {
+      // Exit when the form isn't valid
+      if (!this.checkFormValidity()) {
+        return;
       }
-    }
-  }
+      axios
+        .post(
+          "http://127.0.0.1:8000/Thread/post_thread",
+          {
+            Title: this.form.title,
+            body: this.form.body,
+          },
+          {
+            headers: {
+              Authorization: `token ${localStorage.getItem("authkey")}`,
+            },
+          }
+        )
+        .then(
+          function() {
+            // Handle success
+          }.bind(this)
+        );
+
+      // Hide the modal manually
+      this.$nextTick(() => {
+        this.$bvModal.hide("modal-prevent-closing");
+      });
+    },
+  },
+};
 </script>
