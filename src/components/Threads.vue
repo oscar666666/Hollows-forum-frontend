@@ -34,7 +34,7 @@ export default {
       }
     },
     mounted() {
-        axios({ method: "GET", "url": "http://127.0.0.1:8000/get_thread" }).then(result => {
+        axios({ method: "GET", "url": "http://127.0.0.1:8000/Thread/get_thread" }).then(result => {
                     
                     this.ThreadsList = result.data;
                 }, error => {

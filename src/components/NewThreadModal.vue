@@ -52,8 +52,7 @@ import axios from 'axios'
       return {
           form: {
           title: '',
-          body: '',
-          u_id:'1'
+          body: ''
         }
       }
     },
@@ -81,10 +80,9 @@ import axios from 'axios'
         if (!this.checkFormValidity()) {
           return
         }
-        axios.post('http://127.0.0.1:8000/post_thread', {
+        axios.post('http://127.0.0.1:8000/Thread/post_thread', {
           Title: this.form.title,
-          body: this.form.body,
-          u_id: this.form.u_id
+          body: this.form.body
          }, 
          {
             headers: {
